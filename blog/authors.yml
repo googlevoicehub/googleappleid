@@ -1,0 +1,59 @@
+yangshun:
+  name: Yangshun Tay
+  title: Ex-Meta Staff Engineer, Co-founder GreatFrontEnd
+  url: https://linkedin.com/in/yangshun
+  image_url: https://github.com/yangshun.png
+  page: true
+  socials:
+    x: yangshunz
+    linkedin: yangshun
+    github: yangshun
+    newsletter: https://www.greatfrontend.com
+
+slorber:
+  name: Sébastien Lorber
+  title: Docusaurus maintainer
+  url: https://sebastienlorber.com
+  image_url: https://github.com/slorber.png
+  page:
+    # customize the url of the author page at /blog/authors/<permalink>
+    permalink: '/all-sebastien-lorber-articles'
+  socials:
+    x: sebastienlorber
+    linkedin: sebastienlorber
+    github: slorber
+    newsletter: https://thisweekinreact.com
+
+googleappleid:
+  name: GOOGLEAPPLEID.COM
+  title: 谷歌、苹果、美国电话号码专家
+  url: https://googleapple.com
+  image_url: http://localhost:3000/img/googleappleid_logo.png
+  page: true
+  socials:
+    github: googlevoicehub
+    newsletter: https://www.greatfrontend.com
+
+google:
+  name: Google
+  title: 是一家以搜索引擎起家、以人工智能和云计算为核心，提供互联网服务与数字生态的平台型科技公司。
+  url: https://www.google.com
+  image_url: https://avatars.githubusercontent.com/u/1342004?s=200&v=4
+  page: true
+  socials:
+    x: google
+    linkedin: google
+    github: google
+    # newsletter: https://www.greatfrontend.com
+
+apple:
+  name: Apple
+  title: 是一家以 iPhone、Mac 等硬件产品为核心，通过软硬件一体化打造高端数字生态的科技公司。
+  url: https://www.apple.com/
+  image_url: https://avatars.githubusercontent.com/u/10639145?s=200&v=4
+  page: true
+  socials:
+    x: apple
+    linkedin: apple
+    github: apple
+    # newsletter: https://www.greatfrontend.com

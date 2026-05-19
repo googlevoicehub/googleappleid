@@ -1,0 +1,10 @@
+google:
+  label: Google
+  permalink: /google
+  description: 谷歌教程
+
+apple:
+  label: Apple
+  permalink: /apple
+  description: 苹果教程
+
