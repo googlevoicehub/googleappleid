@@ -27,8 +27,8 @@ slorber:
 googleappleid:
   name: GOOGLEAPPLEID.COM
   title: 谷歌、苹果、美国电话号码专家
-  url: https://googleapple.com
-  image_url: http://localhost:3000/img/googleappleid_logo.png
+  url: https://googleappleid.com
+  image_url: https://googleappleid.com/img/googleappleid_logo.png
   page: true
   socials:
     github: googlevoicehub
