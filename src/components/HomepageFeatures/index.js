@@ -34,7 +34,7 @@ const FeatureList = [
   },
   {
     title: '美国手机靓号 - 超级实用',
-    Svg: require('@site/static/img/Google_Voice.svg').default,
+    Svg: require('@site/static/img/Google_Voice_Logo.svg').default,
     description: (
       <>
         Google Voice 美国靓号，谷歌官方出品，0 月租使用。
