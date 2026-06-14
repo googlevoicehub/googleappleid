@@ -11,7 +11,7 @@ import { themes as prismThemes } from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'GoogleAppleID.COM',
-  tagline: '谷歌账号 | 苹果账号',
+  tagline: '谷歌账号 | 苹果账号 | 谷歌账号购买 | 苹果账号购买 | 谷歌邮箱靓号购买 | Gmail 邮箱靓号购买 | 苹果 Apple ID 购买 | 美国手机号购买 | 美国 eSIM 购买 | Google Voice 靓号购买 | 美国手机靓号购买 | me 邮箱购买 | 苹果绝版账号购买',
   favicon: 'img/googleappleid.ico',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -79,6 +79,16 @@ const config = {
     ({
       // Replace with your project's social card
       image: 'img/apple-microsoft-google.jpg',
+      metadata: [
+        {
+          name: 'description',
+          content: 'GoogleAppleID.COM 提供谷歌账号、苹果账号、Google Voice、美国手机号、美国 eSIM 手机卡、Apple ID、美区账号相关教程与服务。',
+        },
+        {
+          name: 'keywords',
+          content: '谷歌账号 | 苹果账号 | 谷歌账号购买 | 苹果账号购买 | 谷歌邮箱靓号购买 | Gmail 邮箱靓号购买 | 苹果 Apple ID 购买 | 美国手机号购买 | 美国 eSIM 购买 | Google Voice 靓号购买 | 美国手机靓号购买 | me 邮箱购买 | 苹果绝版账号购买',
+        },
+      ],
       colorMode: {
         respectPrefersColorScheme: true,
       },
