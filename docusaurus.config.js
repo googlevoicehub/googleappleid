@@ -176,12 +176,12 @@ const config = {
               },
               {
                 label: '谷歌邮箱靓号在线选号',
-                href: 'https://docs.google.com/spreadsheets/d/19HLeuoDSFmmOrSLvQpvdmbdcIBYFV7ISdUK_l6ZWoMk/edit?usp=sharing',
+                href: 'https://docs.google.com/spreadsheets/d/19WKeX5nN4et4y6LAxmsee79TZuhT0p5_/edit?gid=1229121555#gid=1229121555',
                 className: 'footer-gmail-link'
               },
               {
                 label: '苹果Apple ID在线选号',
-                href: 'https://docs.google.com/spreadsheets/d/1HVBeqSC1zxSTEKohAK0dcBM8QSZwGKVSpg4orLRi-wA/edit?usp=sharing',
+                href: 'https://docs.google.com/spreadsheets/d/19WKeX5nN4et4y6LAxmsee79TZuhT0p5_/edit?gid=1923943411#gid=1923943411',
                 className: 'footer-apple-link'
               },
             ],
