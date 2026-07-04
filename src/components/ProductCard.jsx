@@ -42,7 +42,7 @@ export default function ProductCard({ product }) {
       <Box
         sx={{
           position: "relative",
-          height: 230,
+          height: 200,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -74,8 +74,8 @@ export default function ProductCard({ product }) {
           image={product.image}
           alt={product.name}
           sx={{
-            width: 150,
-            height: 150,
+            width: 135,
+            height: 135,
             objectFit: "contain",
             transition: "transform .28s ease",
           }}
@@ -84,7 +84,7 @@ export default function ProductCard({ product }) {
 
       <CardContent
         sx={{
-          p: 3.2,
+          p: 2.8,
           flex: 1,
           display: "flex",
           flexDirection: "column",
@@ -135,13 +135,13 @@ export default function ProductCard({ product }) {
             fontSize: 15,
             lineHeight: 1.7,
             color: "#666",
-            minHeight: 52,
+            minHeight: 48,
           }}
         >
           {product.brief}
         </Typography>
 
-        <Box sx={{ mt: "auto", pt: 3 }}>
+        <Box sx={{ mt: "auto", pt: 2.4 }}>
           <Box
             sx={{
               display: "flex",
@@ -183,7 +183,7 @@ export default function ProductCard({ product }) {
             disableElevation
             sx={{
               borderRadius: 99,
-              py: 1.25,
+              py: 1.15,
               fontWeight: 800,
               fontSize: 15,
               bgcolor: "#111",
