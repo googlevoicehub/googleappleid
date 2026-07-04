@@ -44,7 +44,12 @@ export default function ProductDetailPage() {
   const location = useLocation();
   const id = Number(new URLSearchParams(location.search).get("id"));
 
-  const product = useMemo(() => products.find((item) => item.id === id), [id]);
+  const product = useMemo(() => {
+    const params = new URLSearchParams(location.search);
+    const id = params.get("id");
+
+    return products.find((item) => String(item.id) === String(id));
+  }, [location.search]);
 
   const [contact, setContact] = useState({ email: "", wechat: "", telegram: "" });
   const [payment, setPayment] = useState("alipay");

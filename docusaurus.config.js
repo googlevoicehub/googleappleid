@@ -14,6 +14,8 @@ const config = {
   tagline: '谷歌账号 | 苹果账号 | 谷歌账号购买 | 苹果账号购买 | 谷歌邮箱靓号购买 | Gmail 邮箱靓号购买 | 苹果 Apple ID 购买 | 美国手机号购买 | 美国 eSIM 购买 | Google Voice 靓号购买 | 美国手机靓号购买 | me 邮箱购买 | 苹果绝版账号购买',
   favicon: 'img/googleappleid.ico',
 
+  trailingSlash: false,
+
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4

@@ -177,7 +177,9 @@ export default function ProductCard({ product }) {
 
           <Button
             component={Link}
-            to={`/products/detail?id=${product.id}`}
+            to={`/products/detail?${new URLSearchParams({
+              id: String(product.id),
+            }).toString()}`}
             variant="contained"
             fullWidth
             disableElevation
