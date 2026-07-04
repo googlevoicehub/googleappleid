@@ -16,12 +16,20 @@ export default function ProductsPage() {
     const [isSticky, setIsSticky] = useState(false);
 
     useEffect(() => {
+        let lastSticky = false;
+
         const onScroll = () => {
-            setIsSticky(window.scrollY > 80);
+            const nextSticky = window.scrollY > 80;
+
+            if (nextSticky !== lastSticky) {
+                lastSticky = nextSticky;
+                setIsSticky(nextSticky);
+            }
         };
 
         onScroll();
-        window.addEventListener("scroll", onScroll);
+        window.addEventListener("scroll", onScroll, { passive: true });
+
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
@@ -65,14 +73,8 @@ export default function ProductsPage() {
                                 ? "rgba(255,255,255,0.68)"
                                 : "rgba(255,255,255,0.86)",
 
-                            backdropFilter: "saturate(180%) blur(24px)",
-                            WebkitBackdropFilter: "saturate(180%) blur(24px)",
-
                             borderBottom: isSticky ? "1px solid rgba(0,0,0,0.08)" : "none",
-
-                            boxShadow: isSticky
-                                ? "0 10px 30px rgba(0,0,0,0.04)"
-                                : "0 18px 50px rgba(0,0,0,0.08)",
+                            boxShadow: "none",
 
                             overflowX: "auto",
                             overflowY: "hidden",

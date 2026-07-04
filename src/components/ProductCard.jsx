@@ -27,14 +27,12 @@ export default function ProductCard({ product }) {
         display: "flex",
         flexDirection: "column",
         bgcolor: "rgba(255,255,255,0.82)",
-        backdropFilter: "blur(20px)",
         border: "1px solid rgba(0,0,0,0.06)",
-        boxShadow: "0 18px 50px rgba(0,0,0,0.06)",
         overflow: "hidden",
         transition: "all .28s ease",
+        boxShadow: "none",
         "&:hover": {
-          transform: "translateY(-5px)",
-          boxShadow: "0 28px 70px rgba(0,0,0,0.10)",
+          transform: "translateY(-3px)",
         },
         "&:hover .product-img": {
           transform: "scale(1.06)",
@@ -79,7 +77,6 @@ export default function ProductCard({ product }) {
             width: 150,
             height: 150,
             objectFit: "contain",
-            filter: "drop-shadow(0 18px 28px rgba(0,0,0,.12))",
             transition: "transform .28s ease",
           }}
         />
