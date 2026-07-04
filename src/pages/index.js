@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/intro">
-            GoogleAppleID.COM 教程 - 5分钟 ⏱️
+            to="/products">
+            前往店铺选购 🛍️
           </Link>
         </div>
       </div>
