@@ -1,11 +1,14 @@
+import React, { useEffect, useMemo, useState } from "react";
 import Layout from "@theme/Layout";
 import Link from "@docusaurus/Link";
 import { useLocation } from "@docusaurus/router";
-import React, { useEffect, useMemo, useState } from "react";
+
 import {
   Alert,
   Box,
   Button,
+  Card,
+  CardContent,
   Chip,
   Container,
   Dialog,
@@ -13,20 +16,26 @@ import {
   DialogContent,
   Divider,
   FormControlLabel,
+  IconButton,
   Paper,
   Radio,
   RadioGroup,
   Snackbar,
+  Stack,
   TextField,
+  Tooltip,
   Typography,
 } from "@mui/material";
+
+import ContentCopyIcon from "@mui/icons-material/ContentCopy";
+
 import products from "../../data/products";
 
-const PAYMENT_LABELS = {
-  alipay: "支付宝",
-  wechat: "微信支付",
-  usdt: "USDT TRC20",
-};
+const PAYMENT_OPTIONS = [
+  { value: "alipay", label: "支付宝", icon: "/img/Alipay.svg" },
+  { value: "wechat", label: "微信支付", icon: "/img/WeChatPay.svg" },
+  { value: "usdt", label: "USDT (TRC20)", icon: "/img/USDT.svg" },
+];
 
 const DEFAULT_USD_CNY_RATE = 6.66;
 const USDT_ADDRESS = "TSjahJNcovJtSMMx95HWSt1nn58LEfkHvn";
@@ -152,12 +161,26 @@ export default function ProductDetailPage() {
     return (
       <>
         <Box component="img" src="/img/usdt_trc20.png" alt="USDT TRC20" sx={qrStyle} />
-        <Typography sx={{ mt: 2, wordBreak: "break-all", fontWeight: 700 }}>
-          TRC20 地址：{USDT_ADDRESS}
-        </Typography>
-        <Button variant="outlined" size="small" onClick={copyUsdtAddress} sx={{ mt: 2 }}>
-          复制地址
-        </Button>
+        <Card
+          variant="outlined"
+          sx={{
+            mt: 2,
+            borderRadius: 2,
+            bgcolor: "grey.50",
+          }}
+        >
+          <Stack direction="row" alignItems="center" spacing={1}>
+            <Typography sx={{ wordBreak: "break-all", fontWeight: 700 }}>
+              TRC20 地址：{USDT_ADDRESS}
+            </Typography>
+
+            <Tooltip title="复制地址">
+              <IconButton onClick={copyUsdtAddress} size="small">
+                <ContentCopyIcon fontSize="small" />
+              </IconButton>
+            </Tooltip>
+          </Stack>
+        </Card>
       </>
     );
   };
@@ -239,8 +262,25 @@ export default function ProductDetailPage() {
             <Typography sx={{ mt: 4, mb: 1, fontWeight: 700 }}>选择支付方式</Typography>
 
             <RadioGroup value={payment} onChange={(e) => setPayment(e.target.value)}>
-              {Object.entries(PAYMENT_LABELS).map(([value, label]) => (
-                <FormControlLabel key={value} value={value} control={<Radio />} label={label} />
+              {PAYMENT_OPTIONS.map((item) => (
+                <FormControlLabel
+                  key={item.value}
+                  value={item.value}
+                  control={<Radio />}
+                  label={
+                    <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+                      <Box
+                        component="img"
+                        src={item.icon}
+                        alt={item.label}
+                        sx={{ width: 28, height: 28, objectFit: "contain" }}
+                      />
+                      <Typography sx={{ fontSize: 20 }}>
+                        {item.label}
+                      </Typography>
+                    </Box>
+                  }
+                />
               ))}
             </RadioGroup>
 
