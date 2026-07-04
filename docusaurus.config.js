@@ -99,6 +99,7 @@ const config = {
           src: 'img/googleappleid_logo.png',
         },
         items: [
+          { to: '/products', label: '旗舰店', position: 'left' },
           {
             type: 'docSidebar',
             sidebarId: 'tutorialSidebar',
