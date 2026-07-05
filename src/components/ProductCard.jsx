@@ -196,7 +196,7 @@ export default function ProductCard({ product }) {
               },
             }}
           >
-            查看详情
+            立即购买
           </Button>
         </Box>
       </CardContent>
