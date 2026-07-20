@@ -109,7 +109,7 @@ const products = [
     category: "苹果老账号",
     region: "US",
     originalPrice: 10000,
-    price: 0.01,
+    price: 9999,
     brief: "美国区 Apple ID 老账号，可直接登录使用，适用于 App Store、Apple Music、iCloud 等苹果生态服务。",
     description:
       "美国区 Apple ID 老账号，注册时间久、稳定性高，可用于下载美区 App、购买应用及游戏、订阅 Apple Music、iCloud+ 等 Apple 数字服务。账号支持修改密码、安全信息等基础设置（具体以商品说明为准），适合长期使用美区 Apple 生态的用户。具体价格请点击页面下方的【苹果Apple ID在线选号】开始选号",
@@ -122,7 +122,7 @@ const products = [
     category: "谷歌账号",
     region: "US",
     originalPrice: 10000,
-    price: 0.01,
+    price: 9999,
     brief: "2005年注册的 Gmail 老账号，账号年限久、辨识度高，适合长期使用谷歌邮箱及相关服务。",
     description:
       "2005年注册的 Gmail 老账号，账号注册时间早，具有较高稀缺性和收藏价值。可用于 Gmail 邮箱收发、Google 账号登录及部分谷歌生态服务，适合需要稳定邮箱、海外平台注册、商务联系及长期使用谷歌服务的用户。具体价格请点击页面下方的【谷歌邮箱靓号在线选号】开始选号",
@@ -161,7 +161,7 @@ const products = [
     category: "美国手机号",
     region: "US",
     originalPrice: 10000,
-    price: 0.01,
+    price: 9999,
     brief: "Google Voice 美国靓号，可在线挑选心仪号码，适合长期使用、商务联系及个人通信。",
     description:
       "Google Voice 美国靓号，提供多种优质号码选择，可根据个人喜好挑选靓号号。适合长期持有美国号码、个人通信及商务联系。号码资源和价格根据号码稀缺程度有所不同，具体号码以实时可选列表为准。具体价格请点击页面下方的【Google Voice 靓号在线选号】开始选号",
