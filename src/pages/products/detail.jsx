@@ -93,6 +93,17 @@ export default function ProductDetailPage() {
     return () => clearInterval(timer);
   }, [open]);
 
+  useEffect(() => {
+    [
+      "/img/alipay.png",
+      "/img/wechat_qrcode.jpg",
+      "/img/usdt_trc20.png",
+    ].forEach((src) => {
+      const img = new Image();
+      img.src = src;
+    });
+  }, []);
+
   const showNotice = (type, message) => {
     setNotice({ open: true, type, message });
   };
@@ -156,16 +167,16 @@ export default function ProductDetailPage() {
 
   const renderPaymentContent = () => {
     if (payment === "alipay") {
-      return <Box component="img" src="/img/alipay.png" alt="支付宝收款码" sx={qrStyle} />;
+      return <Box component="img" src="/img/alipay.png" loading="eager" fetchPriority="high" alt="支付宝收款码" sx={qrStyle} />;
     }
 
     if (payment === "wechat") {
-      return <Box component="img" src="/img/wechat_qrcode.jpg" alt="微信收款码" sx={qrStyle} />;
+      return <Box component="img" src="/img/wechat_qrcode.jpg" loading="eager" fetchPriority="high" alt="微信收款码" sx={qrStyle} />;
     }
 
     return (
       <>
-        <Box component="img" src="/img/usdt_trc20.png" alt="USDT TRC20" sx={qrStyle} />
+        <Box component="img" src="/img/usdt_trc20.png" loading="eager" fetchPriority="high" alt="USDT TRC20" sx={qrStyle} />
         <Card
           variant="outlined"
           sx={{
