@@ -1,0 +1,70 @@
+---
+sidebar_position: 3
+title: 谷歌账号如何使用 Google Authenticator 进行两步验证
+---
+
+## 第一步：开启 Google 两步验证
+
+1. 登录 Google 账号。
+2. 打开 **Google 账号管理**。
+3. 进入 **安全性（Security）**。
+4. 找到 **两步验证（2-Step Verification）**，点击**开始使用**。
+5. 根据提示完成手机验证（可能需要绑定手机号或使用 Google 提示）。([Google 帮助][1])
+
+## 第二步：安装 Google Authenticator
+
+在手机上安装 **Google Authenticator（Google 身份验证器）**。App Store 或者 Google Play 直接搜索 Authenticator
+
+安装完成后暂时不用添加账号。
+
+## 第三步：添加身份验证器
+
+1. 回到 Google 账号的 **安全性 → 两步验证** 页面。
+2. 在下方找到 **Authenticator（身份验证器）** 或 **Authenticator app（身份验证器应用）**。
+3. 点击 **设置（Set up）**。
+4. Google 会显示一个 **二维码（QR Code）**。
+
+> 如果没有摄像头，也可以选择手动输入密钥。
+
+## 第四步：扫描二维码
+
+打开 Google Authenticator：
+
+1. 点击右下角 **+**。
+2. 选择 **扫描二维码**。
+3. 扫描 Google 页面上的二维码。
+
+扫描完成后，应用中会出现你的 Google 账号，并每 **30 秒**生成一个 **6 位验证码**。
+
+## 第五步：完成验证
+
+回到网页：
+
+1. 输入 Authenticator 中当前显示的 **6 位验证码**。
+2. 点击 **验证（Verify）**。
+
+完成后，Google Authenticator 就已经绑定成功。以后在新设备登录 Gmail（Google 账号）时，除了密码，还需要输入这个动态验证码。
+
+---
+
+## 使用时是什么样？
+
+以后登录 Gmail 时：
+
+1. 输入账号和密码。
+2. Google 要求进行第二步验证。
+3. 打开 Google Authenticator。
+4. 输入当前显示的 **6 位验证码**。
+5. 登录成功。
+
+由于验证码是本地生成的，因此**即使手机没有网络也可以使用**。
+
+---
+
+## 建议同时做好这几件事
+
+Google 官方建议不要只依赖一种验证方式：
+
+* **保存备用恢复码（Backup Codes）**，手机丢失时可以登录。
+* 保留一种备用验证方式（例如 Google 提示或安全密钥）。
+* 如果换手机，先迁移 Authenticator 中的账号，再清除旧手机，否则可能无法登录。
