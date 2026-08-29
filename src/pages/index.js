@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <Layout
       title={`${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />">
+      description="GoogleAppleID.COM 提供谷歌账号、苹果账号、Google Voice、美国手机号及美国 eSIM 相关教程与服务。">
       <HomepageHeader />
       <main>
         <HomepageFeatures />
