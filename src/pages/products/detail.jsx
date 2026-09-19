@@ -314,7 +314,7 @@ export default function ProductDetailPage() {
           </Box>
 
           <Box sx={payInfoStyle}>
-            <Box sx={{ mb: 1.8 }}>
+            <Box sx={{ mb: 1 }}>
               <Typography sx={{ fontSize: 13, color: "text.secondary", mb: 0.5 }}>商品</Typography>
               <Typography sx={{ fontSize: 17, fontWeight: 800 }}>{product.name}</Typography>
             </Box>
@@ -334,6 +334,19 @@ export default function ProductDetailPage() {
           </Box>
 
           <Box sx={{ p: 2, borderRadius: 4, textAlign: "center" }}>{renderPaymentContent()}</Box>
+          <Alert
+            severity="warning"
+            sx={{
+              mt: 1,
+              mb: 2,
+              borderRadius: 2.5,
+              fontSize: 15,
+              fontWeight: 600,
+              alignItems: "center",
+            }}
+          >
+            付款完成后，请点击【我已付款】，并及时联系客服确认订单，以便尽快处理。
+          </Alert>
         </DialogContent>
 
         <DialogActions sx={dialogActionsStyle}>
@@ -389,7 +402,7 @@ const imageStyle = {
 
 const qrStyle = {
   width: "100%",
-  maxWidth: 220,
+  maxWidth: 150,
   mt: 1.5,
   borderRadius: 3,
 };
@@ -420,8 +433,8 @@ const countdownChipStyle = (countdown) => ({
 });
 
 const payInfoStyle = {
-  mb: 2,
-  p: 2.2,
+  mb: 1,
+  p: 1.5,
   borderRadius: 4,
   backgroundColor: "#f7f8fa",
 };
@@ -430,7 +443,7 @@ const amountRowStyle = {
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
-  pt: 1.8,
+  pt: 1,
   borderTop: "1px dashed rgba(0,0,0,0.12)",
 };
 
