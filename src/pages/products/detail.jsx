@@ -35,10 +35,12 @@ const PAYMENT_OPTIONS = [
   { value: "alipay", label: "支付宝", icon: "/img/Alipay.svg" },
   { value: "wechat", label: "微信支付", icon: "/img/WeChatPay.svg" },
   { value: "usdt", label: "USDT (TRC20)", icon: "/img/USDT.svg" },
+  { value: "trx", label: "TRX", icon: "/img/TRX.svg" },
 ];
 
 const DEFAULT_USD_CNY_RATE = 6.66;
 const USDT_ADDRESS = "TSjahJNcovJtSMMx95HWSt1nn58LEfkHvn";
+const TRX_ADDRESS = USDT_ADDRESS;
 
 export default function ProductDetailPage() {
   const location = useLocation();
@@ -57,16 +59,27 @@ export default function ProductDetailPage() {
   const [countdown, setCountdown] = useState(5 * 60);
   const [emailError, setEmailError] = useState("");
   const [usdCnyRate, setUsdCnyRate] = useState(DEFAULT_USD_CNY_RATE);
+  const [trxCnyRate, setTrxCnyRate] = useState(0);
   const [notice, setNotice] = useState({ open: false, type: "success", message: "" });
 
   const isUsdPayment = payment === "usdt";
+  const isTrxPayment = payment === "trx";
   const displayPrice = useMemo(() => {
     if (!product) return "0.00";
-    return isUsdPayment ? (product.price / usdCnyRate).toFixed(2) : product.price.toFixed(2);
-  }, [isUsdPayment, product, usdCnyRate]);
 
-  const displayCurrency = isUsdPayment ? "$" : "¥";
-  const displayUnit = isUsdPayment ? "美元" : "元";
+    if (isUsdPayment) {
+      return (product.price / usdCnyRate).toFixed(2);
+    }
+
+    if (isTrxPayment && trxCnyRate > 0) {
+      return (product.price / trxCnyRate).toFixed(2);
+    }
+
+    return product.price.toFixed(2);
+  }, [isUsdPayment, isTrxPayment, product, usdCnyRate, trxCnyRate]);
+
+  const displayCurrency = isUsdPayment ? "$" : isTrxPayment ? "" : "¥";
+  const displayUnit = isUsdPayment ? "美元" : isTrxPayment ? "TRX" : "元";
 
   useEffect(() => {
     fetch("https://open.er-api.com/v6/latest/USD")
@@ -77,6 +90,18 @@ export default function ProductDetailPage() {
       })
       .catch(() => {
         showNotice("warning", "获取最新汇率失败，已使用默认汇率");
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch("https://api.coingecko.com/api/v3/simple/price?ids=tron&vs_currencies=cny")
+      .then((res) => res.json())
+      .then((data) => {
+        const rate = Number(data?.tron?.cny);
+        if (rate > 0) setTrxCnyRate(rate);
+      })
+      .catch(() => {
+        showNotice("warning", "获取 TRX 汇率失败");
       });
   }, []);
 
@@ -165,6 +190,15 @@ export default function ProductDetailPage() {
     }
   };
 
+  const copyTrxAddress = async () => {
+    try {
+      await navigator.clipboard.writeText(USDT_ADDRESS);
+      showNotice("success", "TRX 地址已复制");
+    } catch {
+      showNotice("error", "复制失败，请手动复制");
+    }
+  };
+
   const renderPaymentContent = () => {
     if (payment === "alipay") {
       return <Box component="img" src="/img/alipay.png" loading="eager" fetchPriority="high" alt="支付宝收款码" sx={qrStyle} />;
@@ -172,6 +206,40 @@ export default function ProductDetailPage() {
 
     if (payment === "wechat") {
       return <Box component="img" src="/img/wechat_qrcode.jpg" loading="eager" fetchPriority="high" alt="微信收款码" sx={qrStyle} />;
+    }
+
+    if (payment === "trx") {
+      return (
+        <>
+          <Box
+            component="img"
+            src="/img/trx.jpg"
+            loading="eager"
+            alt="TRX"
+            sx={qrStyle}
+          />
+
+          <Card
+            variant="outlined"
+            sx={{
+              mt: 2,
+              borderRadius: 2,
+              bgcolor: "grey.50",
+            }}
+          >
+            <Stack direction="row" alignItems="center" spacing={1}>
+              <Typography sx={{ wordBreak: "break-all", fontWeight: 700 }}>
+                TRX 地址：{TRX_ADDRESS}
+              </Typography>
+              <Tooltip title="复制地址">
+                <IconButton onClick={copyTrxAddress} size="small">
+                  <ContentCopyIcon fontSize="small" />
+                </IconButton>
+              </Tooltip>
+            </Stack>
+          </Card>
+        </>
+      );
     }
 
     return (
@@ -324,10 +392,11 @@ export default function ProductDetailPage() {
               <Box sx={{ textAlign: "right" }}>
                 <Typography sx={{ fontSize: 13, color: "text.secondary", mb: 0.2 }}>
                   {displayUnit}
-                  {isUsdPayment ? `，汇率 1 USD = ${usdCnyRate.toFixed(4)} CNY` : ""}
+                  {isUsdPayment && `，汇率 1 USD = ${usdCnyRate.toFixed(4)} CNY`}
+                  {isTrxPayment && trxCnyRate > 0 && `，汇率 1 TRX = ${trxCnyRate.toFixed(4)} CNY`}
                 </Typography>
                 <Typography sx={{ fontSize: 32, lineHeight: 1, fontWeight: 900, letterSpacing: -0.5 }}>
-                  {displayCurrency}{displayPrice}
+                  {isTrxPayment ? `${displayPrice} TRX` : `${displayCurrency}${displayPrice}`}
                 </Typography>
               </Box>
             </Box>
