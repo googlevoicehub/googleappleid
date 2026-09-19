@@ -147,7 +147,7 @@ const config = {
               },
               {
                 label: 'WeChat: madebygoogle',
-                href: 'http://googleappleid.com/img/wechat_qrcode.jpg',
+                href: 'https://googleappleid.com/img/wechat_qrcode.jpg',
                 className: 'footer-wechat-link'
               },
             ],
